@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>>> Role Randomizer</title>
+    <script src="script.js" defer></script>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="title">
+        <h1>League of Legends Role Randomizer</h1>
+        <h3>Not endorsed by Riot Games</h2>
+    </div>
+    <div class="players">
+        <button data-player>
+            <input type=text placeholder="player name">
+        </button>
+        <button data-player>
+            <input type=text placeholder="player name">
+        </button>
+        <button data-player>
+            <input type=text placeholder="player name">
+        </button>
+        <button data-player>
+            <input type=text placeholder="player name">
+        </button>
+        <button data-player>
+            <input type=text placeholder="player name">
+        </button>
+    </div>
+    <div class="roles_available">
+        <div>Roles Available:</div>
+        <button data-role>top</button>
+        <button data-role>jng</button>
+        <button data-role>mid</button>
+        <button data-role>bot</button>
+        <button data-role>sup</button>
+    </div>
+    <button class="randomize_button" onClick="randomize();">Randomize</button>
+    <div class="results"></div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap');
+
+* {
+    font-family: "Cutive Mono", serif;
+    font-weight: bold;
+}
+
+body {
+    background: #00202B;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+button {
+    min-width: 7em;
+    min-height: 3em;
+    max-width: auto;
+    max-height: auto;
+    margin: 0 10px 0 10px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.players > button {
+    background: #D28556;
+    border: none;
+    box-shadow: 0.1em 0.1em #FCF0C5;
+}
+
+.players {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+
+    width: 90vw;
+    height: 6em;
+    margin-top: 2em;
+}
+
+.roles_available {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: #FCF0C5;
+    text-shadow: 0.1em 0.1em #C8622C;
+
+    margin: 1em 0 1em 0;
+}
+
+input {
+    max-width: 90%;
+}
+
+.roles_available > button {
+    border: none;
+    background: #D28556;
+    font-size: small;
+    box-shadow: 0.1em 0.1em #FCF0C5;
+}
+
+.results {
+    min-width: none;
+    min-height: none;
+    margin-top: 1.5em;
+    background: #FCF0C5;
+    box-shadow: 0.5em 0.5em #C8622C;
+}
+
+.results > div {
+    margin: 0.5em;
+    font-size: 1.25em;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    color: #FCF0C5;
+    text-shadow: 2px 2px #D28556;
+}
+
+.title > h3 {
+    text-shadow: 1px 1px #D28556;
+}
+
+h1 {
+    margin-bottom: 0em;
+}
