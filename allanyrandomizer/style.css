@@ -93,3 +93,9 @@ input {
 h1 {
     margin-bottom: 0em;
 }
+
+.randomize_button {
+    background: #FCF0C5;
+    border: none;
+    box-shadow: #C8622C;
+}
