@@ -97,5 +97,5 @@ h1 {
 .randomize_button {
     background: #FCF0C5;
     border: none;
-    box-shadow: #C8622C;
+    box-shadow: 0.2em 0.2em #C8622C;
 }
