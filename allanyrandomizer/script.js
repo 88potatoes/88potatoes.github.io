@@ -100,7 +100,7 @@ function randomize(){
         }
     }else{
         let element = document.createElement("div");
-        element.innerHTML = "Error: number of players and positions do not match.";
+        element.innerHTML = "Professor Heimerdinger says the number of players and positions do not match.";
         results.appendChild(element);
     }
     console.log(rolesToggled + " and " + playersToggled + " and type of rolesToggled: " + typeof rolesToggled);
