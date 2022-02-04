@@ -1,4 +1,18 @@
-//start 010222 - end ??????
+//start 010222 - end 040222
+/** Improvements:
+ *  -independent updating and rendering for better compatibility with 
+ *  different pcs
+ *  - idk if the collision detection is bad or not because with high
+ *  enough velocity, an object could go straight through another object
+ *  - not responsive
+ *  - doesn't save top score if the page refreshes
+ *  
+ *  Don't know if document.body.onkeydown returns an event object?
+ *  it receives it as a parameter? idk don't really get it
+ * 
+ * 
+ * 
+ */
 
 let screen = document.querySelector(".screen");
 let scoreboard = document.querySelector(".score");
@@ -6,13 +20,15 @@ let pipeArray = [];
 let gameIsPlaying = true;
 let gap = 200;
 let score = 0;
+let topScore = 0;
+let highestScore = document.querySelector(".highestScore");
 class Pipes {
     constructor(hstart, hend){
         this.x = 720;
         this.hstart = hstart;
         this.hend = hend;
         this.width = 70;
-        this.speed = 1;
+        this.speed = 1.5;
         this.top = document.createElementNS("http://www.w3.org/2000/svg", "rect");
         this.bot = document.createElementNS("http://www.w3.org/2000/svg", "rect");
         this.topDict = {"x": `${this.x}`, "y": "0", "width": `${this.width}`, "height": `${this.hstart}`, "fill": "#2A9D8F"};
@@ -74,6 +90,11 @@ class Pipes {
             this.scored = true;
 
             scoreboard.innerHTML = `SCORE: ${score}`;
+
+            if(score > topScore) {
+                topScore = score;
+                highestScore.innerHTML = `HIGHEST SCORE: ${topScore}`;
+            }
         }
     }
 }
@@ -111,7 +132,7 @@ function update() {
 }
 
 //adding pipes to the game
-const framesPerPipe = 400;
+const framesPerPipe = 200;
 let p = framesPerPipe - 1;
 function createPipes() {
     p++;
@@ -130,9 +151,9 @@ class Bird {
         this.length = 40;
         this.bird = document.createElementNS("http://www.w3.org/2000/svg", "rect");
         this.birdDict =  {"x": `${this.x}`, "y": `${this.y}`, "width": `${this.length}`, "height": `${this.length}`};
-        this.gravity = 0.1;
+        this.gravity = 0.15;
         this.velocity = 0;
-        this.jumpvelocity = 8;
+        this.jumpvelocity = 9;
         this.atBottom = false;
         this.atTop = false;
 
