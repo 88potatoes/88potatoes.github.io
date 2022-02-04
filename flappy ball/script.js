@@ -219,4 +219,9 @@ function resetGame() {
 
     score = 0;
     scoreboard.innerHTML = `SCORE: ${score}`;
+
+    bird.y = 640;
+    bird.velocity = 0;
+    bird.atBottom = false;
+    bird.atTop = false;
 }
