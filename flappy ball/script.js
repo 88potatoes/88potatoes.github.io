@@ -6,7 +6,9 @@
  *  enough velocity, an object could go straight through another object
  *  - not responsive
  *  - doesn't save top score if the page refreshes
- *  
+ *  - the game also speeds up sometimes
+ *      idk where it comes from
+ * 
  *  Don't know if document.body.onkeydown returns an event object?
  *  it receives it as a parameter? idk don't really get it
  * 
@@ -152,7 +154,7 @@ class Bird {
         this.bird = document.createElementNS("http://www.w3.org/2000/svg", "rect");
         this.birdDict =  {"x": `${this.x}`, "y": `${this.y}`, "width": `${this.length}`, "height": `${this.length}`};
         this.gravity = 0.15;
-        this.velocity = 0;
+        this.velocity = -3;
         this.jumpvelocity = 9;
         this.atBottom = false;
         this.atTop = false;
@@ -221,7 +223,7 @@ function resetGame() {
     scoreboard.innerHTML = `SCORE: ${score}`;
 
     bird.y = 640;
-    bird.velocity = 0;
+    bird.velocity = -3;
     bird.atBottom = false;
     bird.atTop = false;
 }
