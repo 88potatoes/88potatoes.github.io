@@ -1,0 +1,53 @@
+body {
+background: #DDE5B6;
+}
+
+.clock {
+background: #F0EAD2;
+border: 8px solid #6C584C;
+border-radius: 50%;
+width: 500px;
+height: 500px;
+
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+
+.centre {
+background: #6C584C;
+border-radius: 50%;
+
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 20px;
+height: 20px;	
+}
+
+.hand {
+width: 10px;
+height: 230px;
+
+background: black;
+border-radius: 10px;
+
+position: absolute;
+top: 50%;
+left: 50%;
+transform-origin: bottom;
+}
+
+.second {
+height: 220px;
+}
+
+.minute {
+height: 180px;
+}
+
+.hour {
+height: 110px;
+}
