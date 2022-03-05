@@ -14,8 +14,18 @@ body {
     width: 30px;
     height: 30px;
     text-align: center;
+    border: 1px solid black;    
 }
 
 .matrix_children {
     margin: 10px;
+}
+
+#menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#answer {
+    border: 2px solid black;
 }

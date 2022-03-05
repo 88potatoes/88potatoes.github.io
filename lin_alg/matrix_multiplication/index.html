@@ -10,10 +10,13 @@
     <script src="script.js" type="text/javascript" defer></script>
     <link rel="stylesheet" href="style.css">
     <title>Matrices</title>
+    <div>If you wanna grind matrix multiplication \(^ o  ^ ) /</div>
 </head>
 <body>
     <div id="menu">
-        <button onclick="calculate()">calculate</button>
+        <button onclick="calculate()" title="calculate">calculate</button>
+        <button onclick="display_trace()">trace (matrix 1)</button>
+        <button onclick="display_transpose()">transpose (matrix 1)</button>
         <button onclick="randomize_values()">randomize matrix (values)</button>
         <button onclick="randomize_values_all()">randomize matrix (size and values)</button>
         <div id="mat1dim">matrix 1 size: <input type="text" class="inputs"> x <input class="inputs" type="text"></div>
@@ -30,6 +33,9 @@
         <div>
             - also decimals/fractions don't work very well
         </div>
+        <div>-to change the min/max values of randomly generated arrays, change vmin/vmax with devtools</div>
+        <div>eg: "smax = 9" </div>
+        <div>-to change the min/max size of randomly generated arrays, change smin/smax with devtools</div>
     </div>
 </body>
 </html>

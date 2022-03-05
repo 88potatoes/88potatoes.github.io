@@ -49,7 +49,7 @@ function calculate()
     }
 
     //printing out to the screen
-    change_answer(latex_string(r[0], c[1]));
+    change_answer(latex_string(answer_matrix));
 }
 
 //stores the values in the input matrices into 'matrices' array
@@ -115,14 +115,14 @@ function dot_product(arr1, arr2)
 }
 
 //returns a latex string -
-function latex_string(r, c)
+function latex_string(smat)
 {
     let s = "\\begin{bmatrix}";
-    for (let i = 0; i < r; i++)
+    for (let i = 0, r = smat.length; i < r; i++)
     {
-        for (let j = 0; j < c; j++)
+        for (let j = 0, c = smat[i].length; j < c; j++)
         {
-            s += answer_matrix[i][j];
+            s += smat[i][j];
             if (j < c - 1)
             {
                 s +="&";
@@ -259,4 +259,35 @@ function gauss_jordan(smat){
         
     }
     //
+}
+
+//returns the trace of an array
+function get_trace(smat){
+    //first check if the matrix is square
+    if (smat.length != smat[0].length){
+        console.log("requires a suare matrix");
+        return;
+    }
+
+    let total = 0;
+
+    for (let i = 0, n = smat.length; i < n; i++)
+    {
+        total += smat[i][i];
+    }
+    return total;
+}
+
+//displays trace (matrix 1) onto answer
+function display_trace(){
+    fetch_array();
+    change_answer(`trace: ${get_trace(matrices[0])}`);
+}
+
+//displays transpose (matrix 1) onto answer
+function display_transpose()
+{
+    fetch_array();
+
+    change_answer(latex_string(transpose(matrices[0])));
 }
