@@ -1,0 +1,21 @@
+body {
+    background: beige;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#matrix {
+    display: flex;
+    flex-direction: row;
+}
+
+.inputs {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+
+.matrix_children {
+    margin: 10px;
+}

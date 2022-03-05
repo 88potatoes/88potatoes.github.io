@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <script src="script.js" type="text/javascript" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Matrices</title>
+</head>
+<body>
+    <div id="menu">
+        <button onclick="calculate()">calculate</button>
+        <button onclick="randomize_values()">randomize matrix (values)</button>
+        <button onclick="randomize_values_all()">randomize matrix (size and values)</button>
+        <div id="mat1dim">matrix 1 size: <input type="text" class="inputs"> x <input class="inputs" type="text"></div>
+        <div id="mat2dim">matrix 2 size: <input type="text" class="inputs"> x <input class="inputs" type="text"></div>
+        <button onclick="get_dim(); generate_matrices()">generate matrices</button>
+    </div>
+    <div id="matrix"></div>
+    <div id="answer"></div>
+</body>
+</html>
