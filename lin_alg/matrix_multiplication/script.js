@@ -10,7 +10,7 @@ let answer_matrix = [];
 let discontinue = false;
 let vmin = -5, vmax = 5, smin = 1, smax = 3;
 
-let r = [3,3], c = [3,2];
+let r = [3,3], c = [3,3];
 //making the input matrices
 for (let i = 0; i < 2; i++)
 {
@@ -251,16 +251,6 @@ function change_answer(str)
     MathJax.Hub.Queue(["Typeset", MathJax.Hub, answer]);
 }
 
-//returns an array after gauss-jordan elimination
-function gauss_jordan(smat){
-    //check first column to see if there is non zero value
-    if (smat[0][0] != 0)
-    {
-        
-    }
-    //
-}
-
 //returns the trace of an array
 function get_trace(smat){
     //first check if the matrix is square
@@ -290,4 +280,127 @@ function display_transpose()
     fetch_array();
 
     change_answer(latex_string(transpose(matrices[0])));
+}
+
+//returns a row swapped matrix if needed - also makes a leading 1
+//smat = matrix, col = column being checked, k = row up to
+function swap_row(smat, col, k)
+{
+    //if top left digit is not 0
+    if (smat[k][col] != 0){
+        if (smat[k][col] == 1)
+        {
+            return smat;
+        }
+        else
+        {
+            let temp = smat[k][col];
+            for (let i = 0, n = smat[k].length; i < n; i++)
+            {
+                smat[k][i] /= temp;
+            }
+            return smat;
+        }
+    }
+
+    //if top left digit is 0
+    for (let i = k + 1, n = smat.length; i < n; i++)
+    {
+        if (smat[i][col] != 0)
+        {
+            [smat[k], smat[i]] = [smat[i], smat[k]];
+            let temp = smat[k][col];
+
+            if (temp == 1)
+            {
+                return smat;
+            }
+
+            for (let i = col, n = smat[k].length; i < n; i++)
+            {
+                smat[k][i] /= temp;
+            }
+
+            return smat;
+        }
+
+        //if the column is all zeros below k
+        return smat;
+    }
+}
+
+//returns a b*line added to the original line
+function add_line(hline, mult, aline)
+{
+    for (let i = 0, n = hline.length; i < n; i++)
+    {
+        hline[i] += mult*aline[i];
+    }
+
+    return hline;
+}
+
+//returns a matrix in ref
+function g_elim(smat)
+{
+    if (!smat) return;
+    
+    let rows = smat.length, cols = smat[0].length, k = 0;
+    
+    for (let i = 0; i < cols; i++)
+    {
+        smat = swap_row(smat, i, k);
+
+        if (smat[k][i] == 0)
+        {
+            continue;
+        }
+
+        for (let j = k + 1; j < rows; j++)
+        {
+            smat[j] = add_line(smat[j], -smat[j][i], smat[k]);
+        }
+        if (k == rows - 1) break;
+        k++;
+    }
+
+    return smat;
+}
+
+//returns a matrix in rref
+function gj_elim(smat)
+{
+    console.log("START");
+    smat = g_elim(smat);
+    
+    let k = smat.length - 1;
+
+    for (let i = k; i >= 0; i--)
+    {
+        for(let j = 0, l = smat[0].length; j < l; j++)
+        {
+            if(smat[i][j] == 1)
+            {
+                for (let m = 0; m < i; m++)
+                {
+                    smat[m] = add_line(smat[m], -smat[m][j], smat[i])
+                }
+                break;
+            }
+        }
+    }
+    console.table(smat);
+    return smat;
+}
+
+//does gj elim
+function do_gj_elim(){
+    fetch_array();
+    change_answer(latex_string(gj_elim(matrices[0])));
+}
+
+function do_g_elim()
+{
+    fetch_array();
+    change_answer(latex_string(g_elim(matrices[0])));
 }
